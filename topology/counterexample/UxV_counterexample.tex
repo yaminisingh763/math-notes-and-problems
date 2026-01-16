@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+
+\textbf{Question.}  
+Give an example of an open set in $\mathbb{R}^2$ (with the product metric) that is not of the form $U \times V$, where $U,V \subset \mathbb{R}$ are open.
+
+\medskip
+
+\textbf{Example.}  
+Let
+\[
+P = (\mathbb{R}, |\cdot|), \qquad Q = (\mathbb{R}, |\cdot|)
+\]
+.  
+Consider the product space
+\[
+P \times Q = (\mathbb{R}^2, d),
+\]
+where $d$ is the max (product) metric defined by
+\[
+d\big((x_1,y_1),(x_2,y_2)\big) = \max\{|x_1-x_2|,\; |y_1-y_2|\}.
+\]
+
+Let
+\[
+A = \overline{B}_{\|\cdot\|_2}\big((0,0),1\big)
+   = \{(x,y) \in \mathbb{R}^2 : x^2 + y^2 \le 1\},
+\]
+the closed unit ball in $\mathbb{R}^2$ with respect to the Euclidean norm.
+
+\medskip
+
+\textbf{Claim 1.}  
+$A^c$ is open in $(\mathbb{R}^2,d)$.
+
+\medskip
+
+\textbf{Proof.}  
+Let $(a,b) \in A^c$. Since $A^c$ is open in $(\mathbb{R}^2,\|\cdot\|_2)$, there exists $r>0$ such that
+\[
+B_{\|\cdot\|_2}\big((a,b), r\big) \subseteq A^c.
+\]
+
+If $(x,y) \in B_{\|\cdot\|_2}\big((a,b),r\big)$, then
+\[
+(x,y) \in A^c, \quad \text{so} \quad \sqrt{x^2 + y^2} > 1,
+\]
+and
+\begin{equation}
+\sqrt{(x-a)^2 + (y-b)^2} < r.
+\tag{$\ast$}
+\end{equation}
+Hence,
+\[
+(x-a)^2 + (y-b)^2 < r^2.
+\]
+
+Therefore, if we take
+\[
+(x-a)^2 < \frac{r^2}{2}
+\quad \text{and} \quad
+(y-b)^2 < \frac{r^2}{2},
+\]
+then $(\ast)$ is satisfied and
+\[
+(x,y) \in B_{\|\cdot\|_2}\big((a,b),r\big) \subseteq A^c.
+\]
+
+This forces,
+\[
+|x-a| < \frac{r}{\sqrt{2}}
+\quad \text{and} \quad
+|y-b| < \frac{r}{\sqrt{2}}.
+\]
+
+Let $r' = \frac{r}{\sqrt{2}}$. Then
+\[
+\max\{|x-a|, |y-b|\} < r',
+\]
+and hence
+\[
+d\big((a,b),(x,y)\big) < r'.
+\]
+
+Therefore,
+\[
+B_d\big((a,b), r'\big) \subseteq A^c.
+\]
+Thus, $A^c$ is open in $(\mathbb{R}^2, d)$.
+
+\hfill$\square$
+
+\medskip
+
+\textbf{Claim 2.}  
+$A^c$ cannot be written in the form $U \times V$, where $U \subset \mathbb{R}$ and $V \subset \mathbb{R}$ are open.
+
+\medskip
+
+\textbf{Proof.}  
+Assume, for contradiction, that
+\[
+A^c = U \times V
+\]
+for some open sets $U,V \subset \mathbb{R}$.
+
+Consider the horizontal line $\{(x,2) : x \in \mathbb{R}\}$.  
+Since $x^2 + 2^2 > 1$ for all $x \in \mathbb{R}$, this entire line lies in $A^c$.  
+Thus, for every $x \in \mathbb{R}$,
+\[
+(x,2) \in U \times V,
+\]
+which implies $\mathbb{R} \subset U$.
+
+Similarly, consider the vertical line $\{(2,y) : y \in \mathbb{R}\}$.  
+Again, $2^2 + y^2 > 1$ for all $y \in \mathbb{R}$, so this entire line lies in $A^c$, implying
+\[
+\mathbb{R} \subset V.
+\]
+
+Hence,
+\[
+U = \mathbb{R}, \qquad V = \mathbb{R},
+\]
+and therefore
+\[
+U \times V = \mathbb{R}^2,
+\]
+which contradicts $A^c \neq \mathbb{R}^2$.
+
+Thus $A^c$ cannot be written as a product of open sets.
+\hfill$\square$
+
+\end{document}
